@@ -32,7 +32,7 @@ public class ToDoController {
 
     @GetMapping("/{id}")
     public ToDo getById(@PathVariable String id) {
-        return toDoRepository.getReferenceById(id);
+        return toDoRepository.findById(id).orElse(null);
     }
 
     @PostMapping
