@@ -1,0 +1,6 @@
+spring:
+  mvc:
+    contentnegotiation:
+      favor-parameter: true
+  jackson:
+    date-format: dd.MM.yyyy HH:mm:ss
