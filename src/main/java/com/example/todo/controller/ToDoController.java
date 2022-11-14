@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/todo")
@@ -31,8 +32,9 @@ public class ToDoController {
     }
 
     @GetMapping("/{id}")
-    public ToDo getById(@PathVariable String id) {
-        return toDoRepository.findById(id).orElse(null);
+    public ResponseEntity<ToDo> getById(@PathVariable String id) {
+        Optional<ToDo> result = toDoRepository.findById(id);
+        return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
