@@ -27,7 +27,7 @@ public class ToDoController {
 
 
     @GetMapping
-    public List<ToDo> getAll() {
+    public Iterable<ToDo> getAll() {
         return toDoRepository.findAll();
     }
 
