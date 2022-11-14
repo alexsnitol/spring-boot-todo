@@ -4,3 +4,13 @@ spring:
       favor-parameter: true
   jackson:
     date-format: dd.MM.yyyy HH:mm:ss
+  h2:
+    console:
+      enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: DEBUG
