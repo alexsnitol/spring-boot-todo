@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,7 +26,7 @@ public class ToDoController {
 
 
     @GetMapping
-    public List<ToDo> getAll() {
+    public Iterable<ToDo> getAll() {
         return toDoRepository.findAll();
     }
 
