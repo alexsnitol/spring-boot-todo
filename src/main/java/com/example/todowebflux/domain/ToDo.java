@@ -1,17 +1,20 @@
 package com.example.todowebflux.domain;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
  * @author Alexander Slotin (<a href="https://github.com/alexsnitol">@alexsnitol</a>) <p>
  * 2022 Nov
  */
 @Data
+@Document
 public class ToDo {
 
+    @Id
     private String id;
     private String description;
     private Boolean completed = false;
@@ -20,7 +23,6 @@ public class ToDo {
 
 
     public ToDo() {
-        this.id = UUID.randomUUID().toString();
         LocalDateTime currentDt = LocalDateTime.now();
         this.created = currentDt;
         this.modified = currentDt;
