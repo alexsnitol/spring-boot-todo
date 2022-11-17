@@ -12,3 +12,14 @@ spring:
   h2:
     console:
       enabled: true
+  data:
+    rest:
+      base-path: /api
+  mustache:
+    servlet:
+      expose-request-attributes: true
+todo:
+  authentication:
+    find-by-email-uri: ${authUri:http://localhost:8081/api/persons/search/findByEmailIgnoreCase?email=}
+    username: ${authEmail:admin@example.com}
+    password: ${authPass:admin}
