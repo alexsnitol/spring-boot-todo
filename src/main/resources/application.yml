@@ -18,8 +18,14 @@ spring:
   mustache:
     servlet:
       expose-request-attributes: true
-todo:
-  authentication:
-    find-by-email-uri: ${authUri:http://localhost:8081/api/persons/search/findByEmailIgnoreCase?email=}
-    username: ${authEmail:admin@example.com}
-    password: ${authPass:admin}
+  security:
+    oauth2:
+      client:
+        registration:
+          todo:
+            client-id: ${oa2-client-id}
+            client-secret: ${oa2-client-secret}
+            client-name: ToDo App with GitHub Authentication
+            provider: github
+            scope: user
+            redirect-uri: http://localhost:8080/login/oauth2/code/github
